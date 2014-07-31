@@ -7,7 +7,8 @@ BOOTPROTO=<%= @bootproto %>
 <% end -%>
 ONBOOT=<%= @onboot %>
 HOTPLUG=<%= @onboot %>
-TYPE=Ethernet
+<% if !@type.empty? %>TYPE=<%= @type %>
+<% end -%>
 <% if !@ipaddress.empty? %>IPADDR=<%= @ipaddress %>
 <% end -%>
 <% if !@netmask.empty? %>NETMASK=<%= @netmask %>
@@ -32,5 +33,7 @@ TYPE=Ethernet
 <% if @userctl %>USERCTL=yes
 <% end -%>
 <% if !@bridge.empty? %>BRIDGE=<%= @bridge %>
+<% end -%>
+<% if !@mode.empty? %>MODE=<%= @mode %>
 <% end -%>
 NM_CONTROLLED=no
